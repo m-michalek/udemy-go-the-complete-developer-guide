@@ -13,7 +13,7 @@ func (d deck) Print() {
 	}
 }
 
-func newDeck() deck {
+func NewDeck() deck {
 	var cards deck
 
 	cardSuits := []string{
@@ -38,10 +38,10 @@ func newDeck() deck {
 	return cards
 }
 
-func deal(d deck, handSize int) (deck, deck) {
+func Deal(d deck, handSize int) (deck, deck) {
 	return d[:handSize], d[handSize:]
 }
 
-func (d deck) toString() string {
+func (d deck) ToString() string {
 	return strings.Join(d, ",")
 }

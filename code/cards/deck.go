@@ -61,11 +61,7 @@ func ReadDeckFromFile(filename string) deck {
 		panic(err)
 	}
 
-	fmt.Println("fileByteSlice:", fileByteSlice)
-
 	fileString := string(fileByteSlice)
 	fileStringSlice := strings.Split(fileString, ",")
-	cards := deck(fileStringSlice)
-
-	return cards
+	return deck(fileStringSlice)
 }

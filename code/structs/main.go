@@ -25,6 +25,14 @@ type school struct {
 	contactInfo
 }
 
+func (p person) print() {
+	fmt.Printf(p.firstName+": %v\n", p)
+}
+
+func (p person) updateName(name string) {
+	p.firstName = name
+}
+
 func main() {
 	fmt.Println("1. approach to construct a struct")
 	peter := person{"Peter", "Doe"}
@@ -55,7 +63,7 @@ func main() {
 	}
 	fmt.Printf("microsoft: %+v\n", microsoft)
 
-	hwrBerlin := business{
+	hwrBerlin := school{
 		name: "Berlin School of Economics and Law Berlin",
 		contactInfo: contactInfo{
 			mail: "info@htw-berlin.com",
@@ -64,4 +72,7 @@ func main() {
 	}
 	fmt.Printf("hwrBerlin: %+v\n", hwrBerlin)
 
+	fmt.Println("Adding custom functions to structs")
+	peter.updateName("Pet")
+	peter.print()
 }

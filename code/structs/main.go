@@ -19,6 +19,12 @@ type contactInfo struct {
 	zip  string
 }
 
+// if the name of the property and the type are equal it can be aggregated
+type school struct {
+	name string
+	contactInfo
+}
+
 func main() {
 	fmt.Println("1. approach to construct a struct")
 	peter := person{"Peter", "Doe"}
@@ -48,4 +54,14 @@ func main() {
 		},
 	}
 	fmt.Printf("microsoft: %+v\n", microsoft)
+
+	hwrBerlin := business{
+		name: "Berlin School of Economics and Law Berlin",
+		contactInfo: contactInfo{
+			mail: "info@htw-berlin.com",
+			zip:  "123",
+		},
+	}
+	fmt.Printf("hwrBerlin: %+v\n", hwrBerlin)
+
 }

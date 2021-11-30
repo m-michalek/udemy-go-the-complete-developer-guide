@@ -1,10 +1,22 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 type person struct {
 	firstName string
 	lastName  string
+}
+
+type business struct {
+	name        string
+	contactInfo contactInfo
+}
+
+type contactInfo struct {
+	mail string
+	zip  string
 }
 
 func main() {
@@ -24,4 +36,16 @@ func main() {
 	mike.lastName = "Morris"
 	fmt.Printf("mike: %v\n", mike)
 	fmt.Printf("mike: %+v\n", mike)
+
+	fmt.Println()
+
+	fmt.Println("Embedded/nested structs")
+	microsoft := business{
+		name: "Microsoft",
+		contactInfo: contactInfo{
+			mail: "info@microsoft.com",
+			zip:  "123",
+		},
+	}
+	fmt.Printf("microsoft: %+v\n", microsoft)
 }

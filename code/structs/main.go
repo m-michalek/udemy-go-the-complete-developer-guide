@@ -26,11 +26,15 @@ type school struct {
 }
 
 func (p person) print() {
-	fmt.Printf(p.firstName+": %v\n", p)
+	fmt.Printf(p.firstName+": %+v\n", p)
 }
 
-func (p person) updateName(name string) {
+func (p person) updateNameIncorrectly(name string) {
 	p.firstName = name
+}
+
+func (pointerOfPerson *person) updateName(name string) {
+	(*pointerOfPerson).firstName = name
 }
 
 func main() {
@@ -73,6 +77,14 @@ func main() {
 	fmt.Printf("hwrBerlin: %+v\n", hwrBerlin)
 
 	fmt.Println("Adding custom functions to structs")
+	peter.updateNameIncorrectly("Pet")
+	peter.print()
+
+	pointer := &peter
+	pointer.updateName("Ron")
+	pointer.print()
+
+	// it is not necessary to explicitly pass the pointer to updateName() to change the value
 	peter.updateName("Pet")
 	peter.print()
 }

@@ -36,7 +36,7 @@ func (p person) updateNameIncorrectly(name string) {
 	p.firstName = name
 }
 
-// *person means that the function expects a pointer of struct person
+// *person means that the function expects a pointer to a person
 // *pointerOfPerson here the * is an actual operator which gives access to the value (the actual struct in memory) instead of the address in memory
 func (pointerOfPerson *person) updateName(name string) {
 	(*pointerOfPerson).firstName = name

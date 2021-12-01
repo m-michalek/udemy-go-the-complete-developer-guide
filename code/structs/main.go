@@ -30,9 +30,14 @@ func (p person) print() {
 }
 
 func (p person) updateNameIncorrectly(name string) {
+	// Go passes variables by value which mean that p person is a copy of what is actually passed to the function
+	// manipulting the copy will not manipulate the actual construct where the function was called
+	// here you can use pointers like shown in updateName()
 	p.firstName = name
 }
 
+// *person means that the function expects a pointer of struct person
+// *pointerOfPerson here the * is an actual operator which gives access to the value (the actual struct in memory) instead of the address in memory
 func (pointerOfPerson *person) updateName(name string) {
 	(*pointerOfPerson).firstName = name
 }
@@ -80,9 +85,9 @@ func main() {
 	peter.updateNameIncorrectly("Pet")
 	peter.print()
 
-	pointer := &peter
-	pointer.updateName("Ron")
-	pointer.print()
+	peterPointer := &peter
+	peterPointer.updateName("Ron")
+	peterPointer.print()
 
 	// it is not necessary to explicitly pass the pointer to updateName() to change the value
 	peter.updateName("Pet")

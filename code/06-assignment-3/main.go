@@ -8,12 +8,10 @@ import (
 func main() {
 	filePath := os.Args[1]
 
-	file, err := os.Open(filePath)
+	filePointer, err := os.Open(filePath)
 	if err != nil {
 		panic(err)
 	}
-
-	filePointer := file
 
 	io.Copy(os.Stdout, filePointer)
 }
